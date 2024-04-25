@@ -1,0 +1,13 @@
+{
+    "autosilentlobby": {
+        "settings": {
+            "name": "AutoSilentLobby",
+            "enabled": {
+                "name": "Enabled"
+            },
+            "servers": {
+                "name": "Servers (seperate with commas)"
+            }
+        }
+    }
+}
