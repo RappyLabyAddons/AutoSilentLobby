@@ -8,14 +8,14 @@ group = "org.example"
 version = "1.0.0"
 
 labyMod {
-    defaultPackageName = "org.example" //change this to your main package name (used by all modules)
+    defaultPackageName = "com.rappytv.autosilentlobby" //change this to your main package name (used by all modules)
     addonInfo {
-        namespace = "example"
-        displayName = "ExampleAddon"
-        author = "Example Author"
-        description = "Example Description"
-        minecraftVersion = "*"
-        version = System.getenv().getOrDefault("VERSION", "0.0.1")
+        namespace = "autosilentlobby"
+        displayName = "AutoSilentLobby"
+        author = "RappyTV"
+        description = "Automatically interacts with an item in your inventory"
+        minecraftVersion = "1.20.2"
+        version = System.getenv().getOrDefault("VERSION", "1.0.0")
     }
 
     minecraft {
