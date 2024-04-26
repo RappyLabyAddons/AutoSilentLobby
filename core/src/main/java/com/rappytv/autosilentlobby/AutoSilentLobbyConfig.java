@@ -9,7 +9,6 @@ import net.labymod.api.client.gui.screen.widget.widgets.input.dropdown.DropdownW
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class AutoSilentLobbyConfig extends AddonConfig {
 
