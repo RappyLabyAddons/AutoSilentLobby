@@ -2,6 +2,7 @@ package com.rappytv.autosilentlobby;
 
 import com.rappytv.autosilentlobby.api.IHotbarApi;
 import com.rappytv.autosilentlobby.core.generated.DefaultReferenceStorage;
+import com.rappytv.autosilentlobby.listener.ServerNavigationListener;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.models.addon.annotation.AddonMain;
 
@@ -14,6 +15,7 @@ public class AutoSilentLobbyAddon extends LabyAddon<AutoSilentLobbyConfig> {
     protected void enable() {
         registerSettingCategory();
         api = ((DefaultReferenceStorage) referenceStorageAccessor()).iHotbarApi();
+        registerListener(new ServerNavigationListener(this));
     }
 
     @Override
