@@ -17,14 +17,17 @@ public class AutoSilentLobbyConfig extends AddonConfig {
     private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
     @SettingSection("navigation")
-    @TextFieldSetting
-    private final ConfigProperty<String> servers = new ConfigProperty<>("");
+    @SwitchSetting
+    private final ConfigProperty<Boolean> singleplayer = new ConfigProperty<>(true);
 
     @SwitchSetting
     private final ConfigProperty<Boolean> join = new ConfigProperty<>(true);
 
     @SwitchSetting
     private final ConfigProperty<Boolean> subservers = new ConfigProperty<>(true);
+
+    @TextFieldSetting
+    private final ConfigProperty<String> servers = new ConfigProperty<>("");
 
     @SettingSection("hotbar")
     @SliderSetting(min = 1, max = 9)
@@ -37,14 +40,17 @@ public class AutoSilentLobbyConfig extends AddonConfig {
     public ConfigProperty<Boolean> enabled() {
         return enabled;
     }
-    public ArrayList<String> servers() {
-        return new ArrayList<>(Arrays.asList(servers.get().split(",")));
+    public boolean onSinglePlayerWorld() {
+        return singleplayer.get();
     }
     public boolean onJoin() {
         return join.get();
     }
     public boolean onSubserverSwitch() {
         return subservers.get();
+    }
+    public ArrayList<String> servers() {
+        return new ArrayList<>(Arrays.asList(servers.get().split(",")));
     }
     public int slot() {
         return slot.get();

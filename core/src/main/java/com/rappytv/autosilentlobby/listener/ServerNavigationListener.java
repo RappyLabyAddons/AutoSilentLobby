@@ -6,6 +6,8 @@ import com.rappytv.autosilentlobby.api.IHotbarApi;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.network.server.ServerJoinEvent;
 import net.labymod.api.event.client.network.server.SubServerSwitchEvent;
+import net.labymod.api.event.client.world.WorldEnterEvent;
+import net.labymod.api.event.client.world.WorldEnterEvent.Type;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -18,6 +20,13 @@ public class ServerNavigationListener {
     public ServerNavigationListener(AutoSilentLobbyAddon addon) {
         this.config = addon.configuration();
         this.api = addon.getApi();
+    }
+
+    @Subscribe
+    public void onWorldJoin(WorldEnterEvent event) {
+        if(event.type() != Type.SINGLEPLAYER) return;
+        if(config.onSinglePlayerWorld())
+            silentLobby();
     }
 
     @Subscribe

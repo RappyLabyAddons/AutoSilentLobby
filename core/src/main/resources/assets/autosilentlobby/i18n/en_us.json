@@ -13,14 +13,17 @@
             "enabled": {
                 "name": "Enabled"
             },
-            "servers": {
-                "name": "Servers (seperate with commas)"
+            "singleplayer": {
+                "name": "Singleplayer Worlds"
             },
             "join": {
                 "name": "On join"
             },
             "subservers": {
                 "name": "On subserver switch"
+            },
+            "servers": {
+                "name": "Servers (seperate with commas)"
             },
             "slot": {
                 "name": "Slot"
