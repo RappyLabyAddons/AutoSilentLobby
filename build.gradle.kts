@@ -14,7 +14,7 @@ labyMod {
         displayName = "AutoSilentLobby"
         author = "RappyTV"
         description = "Automatically interacts with an item in your inventory"
-        minecraftVersion = "1.20.2"
+        minecraftVersion = "1.8.9<1.20.4"
         version = System.getenv().getOrDefault("VERSION", "1.0.0")
     }
 
