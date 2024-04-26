@@ -2,11 +2,25 @@
     "autosilentlobby": {
         "settings": {
             "name": "AutoSilentLobby",
+            "header": {
+                "navigation": {
+                    "name": "Server navigation"
+                },
+                "hotbar": {
+                    "name": "Hotbar settings"
+                }
+            },
             "enabled": {
                 "name": "Enabled"
             },
             "servers": {
                 "name": "Servers (seperate with commas)"
+            },
+            "join": {
+                "name": "On join"
+            },
+            "subservers": {
+                "name": "On subserver switch"
             },
             "slot": {
                 "name": "Slot"
