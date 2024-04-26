@@ -26,27 +26,28 @@ public class ServerNavigationListener {
     public void onWorldJoin(WorldEnterEvent event) {
         if(event.type() != Type.SINGLEPLAYER) return;
         if(config.onSinglePlayerWorld())
-            silentLobby();
+            executeActions();
     }
 
     @Subscribe
     public void onServerJoin(ServerJoinEvent event) {
         if(config.onJoin() && config.servers().contains(event.serverData().address().getHost()))
-            silentLobby();
+            executeActions();
     }
 
     @Subscribe
     public void onSubServerSwitch(SubServerSwitchEvent event) {
         if(config.onSubserverSwitch() && config.servers().contains(event.serverData().address().getHost()))
-            silentLobby();
+            executeActions();
     }
 
-    private void silentLobby() {
+    private void executeActions() {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 api.changeSlot(config.slot() - 1);
-                api.click(config.clickType());
+                for(int i = 0; i < config.clickAmount(); i++)
+                    api.click(config.clickType());
             }
         }, 200);
     }

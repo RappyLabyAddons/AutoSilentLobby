@@ -28,6 +28,9 @@
             "slot": {
                 "name": "Slot"
             },
+            "clickAmount": {
+                "name": "Click amount"
+            },
             "clickType": {
                 "name": "Click Type",
                 "entries": {

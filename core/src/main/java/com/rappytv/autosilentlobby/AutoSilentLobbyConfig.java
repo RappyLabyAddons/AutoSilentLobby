@@ -33,6 +33,9 @@ public class AutoSilentLobbyConfig extends AddonConfig {
     @SliderSetting(min = 1, max = 9)
     private final ConfigProperty<Integer> slot = new ConfigProperty<>(1);
 
+    @SliderSetting(min = 1, max = 5)
+    private final ConfigProperty<Integer> clickAmount = new ConfigProperty<>(1);
+
     @DropdownSetting
     private final ConfigProperty<ClickType> clickType = new ConfigProperty<>(ClickType.NONE);
 
@@ -54,6 +57,9 @@ public class AutoSilentLobbyConfig extends AddonConfig {
     }
     public int slot() {
         return slot.get();
+    }
+    public int clickAmount() {
+        return clickAmount.get();
     }
     public ClickType clickType() {
         return clickType.get();
