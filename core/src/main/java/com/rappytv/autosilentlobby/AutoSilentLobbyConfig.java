@@ -2,12 +2,15 @@ package com.rappytv.autosilentlobby;
 
 import com.rappytv.autosilentlobby.api.ClickType;
 import net.labymod.api.addon.AddonConfig;
+import net.labymod.api.client.gui.screen.widget.widgets.input.ButtonWidget.ButtonSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SliderWidget.SliderSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.TextFieldWidget.TextFieldSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.dropdown.DropdownWidget.DropdownSetting;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.configuration.settings.annotation.SettingSection;
+import net.labymod.api.configuration.settings.type.SettingElement;
+import net.labymod.api.util.MethodOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -38,6 +41,20 @@ public class AutoSilentLobbyConfig extends AddonConfig {
 
     @DropdownSetting
     private final ConfigProperty<ClickType> clickType = new ConfigProperty<>(ClickType.NONE);
+
+    @SettingSection("presets")
+    @SuppressWarnings("unused")
+    @MethodOrder(after = "clickType")
+    @ButtonSetting
+    public void gomme(SettingElement element) {
+        singleplayer.set(false);
+        join.set(true);
+        subservers.set(false);
+        servers.set("gommehd.net");
+        slot.set(3);
+        clickAmount.set(1);
+        clickType.set(ClickType.RIGHT);
+    }
 
     @Override
     public ConfigProperty<Boolean> enabled() {
