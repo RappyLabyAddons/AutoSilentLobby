@@ -7,6 +7,17 @@
             },
             "servers": {
                 "name": "Servers (seperate with commas)"
+            },
+            "slot": {
+                "name": "Slot"
+            },
+            "clickType": {
+                "name": "Click Type",
+                "entries": {
+                    "left": "Left",
+                    "right": "Right",
+                    "middle": "Middle"
+                }
             }
         }
     }
