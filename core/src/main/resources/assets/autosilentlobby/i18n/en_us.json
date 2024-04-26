@@ -28,6 +28,7 @@
             "clickType": {
                 "name": "Click Type",
                 "entries": {
+                    "none": "None",
                     "left": "Left",
                     "right": "Right",
                     "middle": "Middle"

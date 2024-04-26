@@ -22,10 +22,12 @@ public class VersionedHotbarImpl implements IHotbarApi {
     @Override
     public void click(ClickType type) {
         Objects.requireNonNull(type, "ClickType must not be null");
+        if(type == ClickType.NONE) return;
         Key key = switch (type) {
             case LEFT -> InputConstants.getKey("key.mouse.left");
             case RIGHT -> InputConstants.getKey("key.mouse.right");
             case MIDDLE -> InputConstants.getKey("key.mouse.middle");
+            default -> throw new IllegalStateException("Unexpected value: " + type);
         };
         KeyMapping.click(key);
     }

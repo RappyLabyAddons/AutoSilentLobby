@@ -31,7 +31,7 @@ public class AutoSilentLobbyConfig extends AddonConfig {
     private final ConfigProperty<Integer> slot = new ConfigProperty<>(1);
 
     @DropdownSetting
-    private final ConfigProperty<ClickType> clickType = new ConfigProperty<>(ClickType.LEFT);
+    private final ConfigProperty<ClickType> clickType = new ConfigProperty<>(ClickType.NONE);
 
     @Override
     public ConfigProperty<Boolean> enabled() {
