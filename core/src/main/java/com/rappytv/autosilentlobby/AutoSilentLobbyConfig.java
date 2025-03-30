@@ -1,6 +1,8 @@
 package com.rappytv.autosilentlobby;
 
-import com.rappytv.autosilentlobby.api.ClickType;
+import com.rappytv.autosilentlobby.api.MouseButtonType;
+import java.util.ArrayList;
+import java.util.Arrays;
 import net.labymod.api.addon.AddonConfig;
 import net.labymod.api.client.gui.screen.widget.widgets.input.ButtonWidget.ButtonSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SliderWidget.SliderSetting;
@@ -11,8 +13,6 @@ import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.configuration.settings.annotation.SettingSection;
 import net.labymod.api.configuration.settings.type.SettingElement;
 import net.labymod.api.util.MethodOrder;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class AutoSilentLobbyConfig extends AddonConfig {
 
@@ -40,45 +40,46 @@ public class AutoSilentLobbyConfig extends AddonConfig {
     private final ConfigProperty<Integer> clickAmount = new ConfigProperty<>(1);
 
     @DropdownSetting
-    private final ConfigProperty<ClickType> clickType = new ConfigProperty<>(ClickType.NONE);
+    private final ConfigProperty<MouseButtonType> clickType = new ConfigProperty<>(
+        MouseButtonType.NONE);
 
     @SettingSection("presets")
-    @SuppressWarnings("unused")
     @MethodOrder(after = "clickType")
     @ButtonSetting
     public void gomme(SettingElement element) {
-        singleplayer.set(false);
-        join.set(true);
-        subservers.set(false);
-        servers.set("gommehd.net");
-        slot.set(3);
-        clickAmount.set(1);
-        clickType.set(ClickType.RIGHT);
+        this.singleplayer.set(false);
+        this.join.set(true);
+        this.subservers.set(false);
+        this.servers.set("gommehd.net");
+        this.slot.set(3);
+        this.clickAmount.set(1);
+        this.clickType.set(MouseButtonType.RIGHT);
     }
 
     @Override
     public ConfigProperty<Boolean> enabled() {
-        return enabled;
+        return this.enabled;
     }
     public boolean onSinglePlayerWorld() {
-        return singleplayer.get();
+        return this.singleplayer.get();
     }
     public boolean onJoin() {
-        return join.get();
+        return this.join.get();
     }
     public boolean onSubserverSwitch() {
-        return subservers.get();
+        return this.subservers.get();
     }
     public ArrayList<String> servers() {
-        return new ArrayList<>(Arrays.asList(servers.get().split(",")));
+        return new ArrayList<>(Arrays.asList(this.servers.get().split(",")));
     }
     public int slot() {
-        return slot.get();
+        return this.slot.get();
     }
     public int clickAmount() {
-        return clickAmount.get();
+        return this.clickAmount.get();
     }
-    public ClickType clickType() {
-        return clickType.get();
+
+    public MouseButtonType clickType() {
+        return this.clickType.get();
     }
 }
