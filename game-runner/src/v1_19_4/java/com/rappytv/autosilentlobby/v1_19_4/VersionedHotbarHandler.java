@@ -1,28 +1,36 @@
-package com.rappytv.autosilentlobby.v1_19_2;
+package com.rappytv.autosilentlobby.v1_19_4;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.platform.InputConstants.Key;
-import com.rappytv.autosilentlobby.api.ClickType;
-import com.rappytv.autosilentlobby.api.IHotbarApi;
+import com.rappytv.autosilentlobby.api.HotbarHandler;
+import com.rappytv.autosilentlobby.api.MouseButtonType;
+import java.util.Objects;
+import javax.inject.Singleton;
 import net.labymod.api.models.Implements;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import java.util.Objects;
 
-@Implements(IHotbarApi.class)
-public class VersionedHotbarImpl implements IHotbarApi {
+@Singleton
+@Implements(HotbarHandler.class)
+public class VersionedHotbarHandler implements HotbarHandler {
 
     @Override
     public void changeSlot(int slot) {
-        if(Minecraft.getInstance().player == null) return;
-        if(slot < 0 || slot > 8) return;
+        if (Minecraft.getInstance().player == null) {
+            return;
+        }
+        if (slot < 0 || slot > 8) {
+            return;
+        }
         Minecraft.getInstance().player.getInventory().selected = slot;
     }
 
     @Override
-    public void click(ClickType type) {
+    public void click(MouseButtonType type) {
         Objects.requireNonNull(type, "ClickType must not be null");
-        if(type == ClickType.NONE) return;
+        if (type == MouseButtonType.NONE) {
+            return;
+        }
         Key key = switch (type) {
             case LEFT -> InputConstants.getKey("key.mouse.left");
             case RIGHT -> InputConstants.getKey("key.mouse.right");
