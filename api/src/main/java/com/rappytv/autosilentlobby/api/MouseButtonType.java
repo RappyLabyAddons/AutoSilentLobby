@@ -1,6 +1,6 @@
 package com.rappytv.autosilentlobby.api;
 
-public enum ClickType {
+public enum MouseButtonType {
     NONE,
     LEFT,
     RIGHT,
