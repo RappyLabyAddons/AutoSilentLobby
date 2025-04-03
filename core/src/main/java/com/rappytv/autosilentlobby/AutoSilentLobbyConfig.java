@@ -11,7 +11,6 @@ import net.labymod.api.client.gui.screen.widget.widgets.input.TextFieldWidget.Te
 import net.labymod.api.client.gui.screen.widget.widgets.input.dropdown.DropdownWidget.DropdownSetting;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.configuration.settings.annotation.SettingSection;
-import net.labymod.api.configuration.settings.type.SettingElement;
 import net.labymod.api.util.MethodOrder;
 
 public class AutoSilentLobbyConfig extends AddonConfig {
@@ -43,10 +42,13 @@ public class AutoSilentLobbyConfig extends AddonConfig {
     private final ConfigProperty<MouseButtonType> clickType = new ConfigProperty<>(
         MouseButtonType.NONE);
 
+    @SwitchSetting
+    private final ConfigProperty<Boolean> preventSignClick = new ConfigProperty<>(true);
+
     @SettingSection("presets")
-    @MethodOrder(after = "clickType")
+    @MethodOrder(after = "preventSignClick")
     @ButtonSetting
-    public void gomme(SettingElement element) {
+    public void gomme() {
         this.singleplayer.set(false);
         this.join.set(true);
         this.subservers.set(false);
@@ -54,6 +56,7 @@ public class AutoSilentLobbyConfig extends AddonConfig {
         this.slot.set(3);
         this.clickAmount.set(1);
         this.clickType.set(MouseButtonType.RIGHT);
+        this.preventSignClick.set(true);
     }
 
     @Override
@@ -78,8 +81,11 @@ public class AutoSilentLobbyConfig extends AddonConfig {
     public int clickAmount() {
         return this.clickAmount.get();
     }
-
     public MouseButtonType clickType() {
         return this.clickType.get();
+    }
+
+    public boolean preventSignClick() {
+        return this.preventSignClick.get();
     }
 }

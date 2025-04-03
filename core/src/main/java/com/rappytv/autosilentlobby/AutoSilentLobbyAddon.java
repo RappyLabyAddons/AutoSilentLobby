@@ -8,10 +8,10 @@ import net.labymod.api.models.addon.annotation.AddonMain;
 @AddonMain
 public class AutoSilentLobbyAddon extends LabyAddon<AutoSilentLobbyConfig> {
 
-    private static AutoSilentLobbyAddon instance;
+    private static AutoSilentLobbyAddon INSTANCE;
 
     public static ReferenceStorage references() {
-        return instance.referenceStorageAccessor();
+        return INSTANCE.referenceStorageAccessor();
     }
 
     @Override
@@ -21,7 +21,7 @@ public class AutoSilentLobbyAddon extends LabyAddon<AutoSilentLobbyConfig> {
 
     @Override
     protected void enable() {
-        instance = this;
+        INSTANCE = this;
 
         this.registerSettingCategory();
         this.registerListener(new ServerNavigationListener(this));

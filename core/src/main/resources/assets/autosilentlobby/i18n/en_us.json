@@ -43,6 +43,9 @@
                     "middle": "Middle"
                 }
             },
+            "preventSignClick": {
+                "name": "Prevent sign click"
+            },
             "gomme": {
                 "name": "GommeHD",
                 "text": "Apply"

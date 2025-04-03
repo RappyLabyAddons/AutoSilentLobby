@@ -1,8 +1,8 @@
-package com.rappytv.autosilentlobby.v1_21_4;
+package com.rappytv.autosilentlobby.v1_16_5;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.platform.InputConstants.Key;
-import com.rappytv.autosilentlobby.api.HotbarHandler;
+import com.rappytv.autosilentlobby.api.InteractionApi;
 import com.rappytv.autosilentlobby.api.MouseButtonType;
 import java.util.Objects;
 import javax.inject.Singleton;
@@ -11,8 +11,8 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 
 @Singleton
-@Implements(HotbarHandler.class)
-public class VersionedHotbarHandler implements HotbarHandler {
+@Implements(InteractionApi.class)
+public class VersionedInteractionApi implements InteractionApi {
 
     @Override
     public void changeSlot(int slot) {
@@ -22,7 +22,7 @@ public class VersionedHotbarHandler implements HotbarHandler {
         if (slot < 0 || slot > 8) {
             return;
         }
-        Minecraft.getInstance().player.getInventory().selected = slot;
+        Minecraft.getInstance().player.inventory.selected = slot;
     }
 
     @Override

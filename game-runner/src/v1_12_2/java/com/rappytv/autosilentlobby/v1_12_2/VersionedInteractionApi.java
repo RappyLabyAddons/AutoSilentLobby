@@ -1,6 +1,6 @@
-package com.rappytv.autosilentlobby.v1_8_9;
+package com.rappytv.autosilentlobby.v1_12_2;
 
-import com.rappytv.autosilentlobby.api.HotbarHandler;
+import com.rappytv.autosilentlobby.api.InteractionApi;
 import com.rappytv.autosilentlobby.api.MouseButtonType;
 import java.util.Objects;
 import javax.inject.Singleton;
@@ -9,18 +9,18 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 
 @Singleton
-@Implements(HotbarHandler.class)
-public class VersionedHotbarHandler implements HotbarHandler {
+@Implements(InteractionApi.class)
+public class VersionedInteractionApi implements InteractionApi {
 
     @Override
     public void changeSlot(int slot) {
-        if (Minecraft.getMinecraft().thePlayer == null) {
+        if (Minecraft.getMinecraft().player == null) {
             return;
         }
         if (slot < 0 || slot > 8) {
             return;
         }
-        Minecraft.getMinecraft().thePlayer.inventory.currentItem = slot;
+        Minecraft.getMinecraft().player.inventory.currentItem = slot;
     }
 
     @Override
